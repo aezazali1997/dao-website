@@ -1,91 +1,49 @@
-import Image from 'next/image'
+"use client"
+
 import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import { MetaverseLayer } from '../public/Images'
+import Evolution from '../app/components/Evolution'
+import Courses from './components/Courses'
+import Nutshell from '../app/components/Nutshell'
+import Panacloud from '../public/pana.svg';
+import Sylani from '../public/saylani.png';
+import { Box, Text, Flex } from '@chakra-ui/react'
+
+import TypeWriter from 'typewriter-effect'
+import Image from 'next/image'
+import SpecializedTracks from './components/SpecializedTracks'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Box as="section">
+      <Flex flexDirection={["column-reverse","column-reverse","row"]}  position="relative" top={["0","0","120"]} justify={"space-between"} >
+        <h1 className='typewriter'>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
+        <TypeWriter
+          options={{
+            strings: ['Certified web 3.0 and Metaverse Developer', 'Earn as you Learn Program','Web 3.0, Metaverse, Artificial Intelligence (AI), Cloud, Edge, Ambient Computing/IoT, Network Automation, and Bioinformatics Technologies'],
+            autoStart: true,
+            loop: true,
+            cursor:"_"
+          }}/>
+       
+        </h1>
+        < MetaverseLayer /> 
+      </Flex>
+      <Evolution />
+      <Nutshell />
+      <Courses />
+      <SpecializedTracks />
+      <Box bg="gray.100" py='4rem' my='2rem'>
+        <Text fontSize={'4xl'} textAlign="center" fontFamily={"fantasy"} fontWeight={'bold'}>Strategic Partner</Text>
+        <Flex direction={['column','column','row']} margin="auto" alignItems={'center'} justify={'space-between'} width={['auto','auto',"40rem"]} mt="1rem">
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <Image alt='panacloud' width={230} height={230} src={Panacloud}  />
+        <Image alt='sylani' width={230} height={230} src={Sylani} />
+        </Flex>
+   </Box>
+    </Box>
   )
 }
